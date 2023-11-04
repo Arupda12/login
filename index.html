@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
+            width: 250px;
+            padding: 50px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        label {
+            display: block;
+            margin-bottom: 1px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 1px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+        }
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            padding: 5px 25%;
+            cursor: pointer;
+            text-align: center;
+            line-height: 30px; /* Vertically centers the text */
+        }
+        #error {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login</h1>
+    <form id="loginForm" onsubmit="return checkLogin()">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required><br><br>
+        <label for "password">Password:</label>
+        <input type="password" id="password" required><br><br>
+        <input type="submit" value="Login">
+    </form>
+
+    <p id="error">Incorrect username or password</p>
+
+    <script>
+        function checkLogin() {
+            var username = document.getElementById("username").value.toLowerCase();
+            var password = document.getElementById("password").value;
+
+            // Define the allowed usernames and passwords
+            var allowedUsers = [
+                { username: "adminfussioflow", password: "Admin365@fussionflow" },
+                { username: "agentfussionflow", password: "agent360" },
+                { username: "adityaarup777", password: "foundersfusionflow" }
+            ];
+
+            // Check if the entered username and password match any of the allowed combinations
+            for (var i = 0; i < allowedUsers.length; i++) {
+                if (username === allowedUsers[i].username.toLowerCase() && password === allowedUsers[i].password) {
+                    window.location.href = "https://t.me/arup_smm"; // Redirect to the specified URL
+                    return false;
+                }
+            }
+
+            // If no match is found, display an error message
+            document.getElementById("error").style.display = "block";
+            return false;
+        }
+    </script>
+</body>
+</html>
